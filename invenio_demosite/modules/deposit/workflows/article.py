@@ -87,6 +87,7 @@ class AuthorInlineForm(WebDepositForm):
                 message=_("Creator name is required if you specify affiliation.")
             ),
         ],
+        export_key='full_name',
     )
     affiliation = fields.TextField(
         placeholder=_("Affiliation"),
@@ -214,7 +215,7 @@ class ArticleForm(WebDepositForm):
     journal_issue = fields.TextField(
         label=_("Issue"),
         description=_("Optional."),
-        export_key='journal_info.issue',
+        export_key='journal_info.cnum',
         widget_classes='form-control',
     )
 
@@ -244,6 +245,7 @@ class ArticleForm(WebDepositForm):
         icon='fa fa-tags fa-fw',
         widget_classes='',
         min_entries=1,
+        export_key='keywords.term',
     )
 
     notes = fields.TextAreaField(
@@ -299,9 +301,12 @@ class ArticleForm(WebDepositForm):
 
 
 #
-# Workflow
+# Workflows
 #
 class article(SimpleRecordDeposition):
+
+    """."""
+
     name = _("Article")
     name_plural = _("Articles")
     group = _("Articles & Preprints")

@@ -26,4 +26,5 @@ PACKAGES = [
 
 DEPOSIT_TYPES = [
     'invenio_demosite.modules.deposit.workflows.article.article',
+    'invenio_demosite.modules.deposit.workflows.article_edit.article_edit',
 ]
